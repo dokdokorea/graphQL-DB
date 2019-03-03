@@ -1,0 +1,53 @@
+type Movie{
+    id:Int!
+    name: String!
+    score: Int!
+}
+
+type UserInfo{
+    id: String!
+    name: String!
+    nickName: String!
+    password: String!
+    email: String!
+    isSignedUp:Boolean!
+    token:Int!
+}
+
+type History{
+    editCode: Int!
+    title: String!
+    id: String!
+    editContents:String!
+    date:String!
+}
+
+type InfoList{
+    title: String!
+    contents: String!
+    classify: String!
+}
+
+type Reference{
+    reference: String!
+    parents: String!
+    child: String!
+}
+
+type Query{
+    movies: [Movie]!
+    movie(id: Int!): Movie
+    history: [History]!
+    user_info(id:String!,password:String!): UserInfo
+    findById(id:String!): UserInfo
+    findId(name:String! email:String!):UserInfo
+
+
+}
+
+type Mutation{
+    addMovie(name: String!, score: Int!): Movie!
+    deleteMovie(id:Int!):Boolean!
+    addSignUp(id:String! name:String! password: String nickName:String! email:String! token:Int!):UserInfo!
+    deleteAccount(id:String!):Boolean!
+}
